@@ -22,6 +22,7 @@ view: dlp_result_set {
 
   dimension: pk {
     type: number
+    hidden: yes
     sql: ${TABLE}.pk ;;
   }
 
