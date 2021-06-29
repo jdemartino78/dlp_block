@@ -4,4 +4,5 @@ include: "/views/dlp_result_set.view.lkml"
 
 explore: dlp_result_set {
   group_label: "DLP Marketplace"
+  label: "DLP Result Set - DEMO"
 }
