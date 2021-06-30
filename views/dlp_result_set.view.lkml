@@ -42,9 +42,19 @@ left join `anand-bq-test-2.Anand_BQ_Test_1.dlp_metadata` as b
     }
 
     dimension: likelihood {
+      order_by_field: likelihood_order
       description: "Possible, Likely, Very Likely"
       type: string
       sql: ${TABLE}.likelihood ;;
+    }
+
+    dimension: likelihood_order {
+      hidden: yes
+      type: number
+      sql: CASE WHEN ${likelihood} = "POSSIBLE" THEN 1
+                WHEN ${likelihood} = "LIKELY" THEN 2
+                WHEN ${likelihood} = "VERY LIKELY" THEN 3
+                END;;
     }
 
     dimension: source_type {
@@ -103,6 +113,7 @@ left join `anand-bq-test-2.Anand_BQ_Test_1.dlp_metadata` as b
   }
 
     measure: count {
+      label: "Count"
       type: count
     }
 
