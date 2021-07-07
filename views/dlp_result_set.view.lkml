@@ -115,6 +115,7 @@ left join `anand-bq-test-2.Anand_BQ_Test_1.dlp_metadata` as b
     measure: count {
       label: "Count"
       type: count
+      drill_fields: [detail*]
     }
 
 
